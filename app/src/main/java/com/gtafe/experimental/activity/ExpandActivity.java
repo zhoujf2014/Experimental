@@ -1,10 +1,7 @@
 package com.gtafe.experimental.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
-import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Display;
 import android.view.Surface;
@@ -17,18 +14,11 @@ import android.widget.Toast;
 
 import com.gtafe.experimental.R;
 
-import java.io.File;
 import java.io.IOException;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import mabeijianxi.camera.MediaRecorderActivity;
-import mabeijianxi.camera.VCamera;
-import mabeijianxi.camera.model.AutoVBRMode;
-import mabeijianxi.camera.model.BaseMediaBitrateConfig;
-import mabeijianxi.camera.model.MediaRecorderConfig;
-import mabeijianxi.camera.util.DeviceUtils;
 
 /**
  * Created by ZhouJF on 2017/9/12.
