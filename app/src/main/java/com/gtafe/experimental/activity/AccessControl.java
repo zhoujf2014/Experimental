@@ -38,6 +38,7 @@ public class AccessControl extends AppCompatActivity implements SurfaceHolder.Ca
         super.onDestroy();
         //我来自笔记本
         //我来自电脑
+        //我来自电脑AS
 //        Intent intent = new Intent();
 //        intent.setAction("acom.gtafe.testcamera.restartLAUNCHER");
 //        sendBroadcast(intent);
