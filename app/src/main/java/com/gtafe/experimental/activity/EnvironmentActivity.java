@@ -48,6 +48,23 @@ public class EnvironmentActivity extends BaseActivity {
     @Override
     protected void init() {
         refreshView();
+        mLightSeekbar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnActionUp(int progress, float progressFloat) {
+
+
+            }
+
+            @Override
+            public void getProgressOnFinally(int progress, float progressFloat) {
+
+            }
+        });
     }
 
     private void refreshView() {
