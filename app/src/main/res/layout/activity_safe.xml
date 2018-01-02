@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/safe_nomal"
+            android:text="安防系统"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x35"
+            android:layout_marginTop="@dimen/x10"
+            android:background="@drawable/bg_link"
+            android:orientation="vertical"
+            android:padding="@dimen/x8">
+
+            <TextView
+                android:id="@+id/environment_temp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="温        度：38.6℃"
+                android:textSize="@dimen/environment_textsize"/>
+
+            <TextView
+                android:id="@+id/environment_wet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="湿        度：30%"
+                android:textSize="@dimen/environment_textsize"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/x350"
+            android:layout_height="@dimen/x400"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/x130"
+            android:background="@drawable/bg_ll"
+
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/x35">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_connet_nomal">
+
+                <TextView
+                    style="@style/Safe_Text"
+                    android:text="燃气探测器:"/>
+
+                <TextView
+                    android:id="@+id/safe_gas"
+                    style="@style/Safe_Text_State"
+                    android:text="正常"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@drawable/bg_connet_nomal">
+
+                <TextView
+
+                    style="@style/Safe_Text"
+                    android:text="烟雾探测器:"
+                    />
+
+                <TextView
+                    android:id="@+id/safe_smoke"
+                    style="@style/Safe_Text_State"
+                    android:text="正常"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@drawable/bg_connet_nomal">
+
+                <TextView
+
+                    style="@style/Safe_Text"
+                    android:text="火焰探测器:"
+                    />
+
+                <TextView
+                    android:id="@+id/safe_flame"
+                    style="@style/Safe_Text_State"
+                    android:text="正常"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10"
+                android:background="@drawable/bg_connet_nomal">
+
+                <TextView
+                    style="@style/Safe_Text"
+                    android:text="红外探测器:"
+                    />
+
+                <TextView
+                    android:id="@+id/safe_infrared"
+                    style="@style/Safe_Text_State"
+                    android:text="正常"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/x350"
+            android:layout_height="@dimen/x400"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/x60"
+            android:background="@drawable/bg_ll"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/x30">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x100"
+                android:background="@drawable/bg_connet_nomal"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/x15">
+
+                <TextView
+                    style="@style/Safe_Text"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/x5"
+                    android:text="语音报警器:"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y50"
+                    >
+
+                    <ImageView
+                        android:id="@+id/safe_voice_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/voice_anim_bg"/>
+
+                    <TextView
+                        android:id="@+id/safe_voice"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:paddingLeft="@dimen/x10"
+                        android:singleLine="true"
+                        android:text="燃气泄漏"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/safe_set"
+                android:layout_width="@dimen/x100"
+                android:layout_height="@dimen/x50"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/btn_auto_blue_selector"
+                android:gravity="center"
+                android:text="设防"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

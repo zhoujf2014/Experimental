@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\record_next_seletor.xml",
+        "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\record_next_seletor.xml"
+    },
+    {
+        "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\record_camera_flash_led_selector.xml",
+        "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\record_camera_flash_led_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\small_video_shoot.xml",
+        "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\small_video_shoot.xml"
+    },
+    {
+        "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\record_delete_selector.xml",
+        "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\record_delete_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\record_camera_switch_selector.xml",
+        "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\record_camera_switch_selector.xml"
+    }
+]

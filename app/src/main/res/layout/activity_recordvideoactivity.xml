@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+
+            android:drawableLeft="@mipmap/expand_nomal"
+            android:text="图像留言"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_margin="@dimen/x20"
+        android:padding="@dimen/x20"
+        android:background="@drawable/bg_ll"
+        android:id="@+id/recordvideolist_lv"
+        android:layout_width="@dimen/y850"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+    </ListView>
+
+    <Button
+        android:id="@+id/recorder_delect_all"
+        android:layout_width="@dimen/x150"
+        android:layout_height="@dimen/x60"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/x60"
+        android:background="@drawable/btn_auto_blue_selector"
+        android:text="全部删除"
+        android:textSize="@dimen/x20"/>
+
+</LinearLayout>

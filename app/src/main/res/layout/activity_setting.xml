@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/setting_normal"
+            android:text="设置管理"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

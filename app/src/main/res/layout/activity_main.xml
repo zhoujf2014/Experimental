@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.gtafe.experimental.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:background="@drawable/bg_title_p"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.youth.banner.Banner
+            android:id="@+id/main_banner"
+            android:layout_width="@dimen/y900"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/x20"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x10">
+
+                <LinearLayout
+                    android:id="@+id/environment"
+                    style="@style/Main_Linearlayout_Sys">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        style="@style/Main_ImageView_Sys"
+                        android:src="@drawable/environment_selector_bg"/>
+
+                    <TextView
+                        style="@style/Main_TextView_Sys"
+                        android:text="环境照明"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/safe"
+                    style="@style/Main_Linearlayout_Sys">
+
+                    <ImageView
+                        style="@style/Main_ImageView_Sys"
+                        android:src="@drawable/safe_selector_bg"/>
+
+                    <TextView
+                        style="@style/Main_TextView_Sys"
+                        android:text="安防监测"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/appliances"
+                    style="@style/Main_Linearlayout_Sys">
+
+                    <ImageView
+                        style="@style/Main_ImageView_Sys"
+                        android:src="@drawable/appliances_selector_bg"/>
+
+                    <TextView
+                        style="@style/Main_TextView_Sys"
+                        android:text="家电控制"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/x180">
+
+
+                    <LinearLayout
+                        android:id="@+id/expand"
+                        style="@style/Main_Linearlayout_Sys">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            style="@style/Main_ImageView_Sys"
+                            android:src="@drawable/expand_selector_bg"/>
+
+                        <TextView
+                            style="@style/Main_TextView_Sys"
+                            android:text="门禁监控"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/recorder_count"
+                        android:layout_width="@dimen/x40"
+                        android:layout_height="@dimen/y40"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/x25"
+                        android:background="@drawable/bg_red_recorder"
+                        android:gravity="center"
+                        android:padding="@dimen/x5"
+                        android:text="3"
+                        android:textSize="@dimen/x20"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/light"
+                    style="@style/Main_Linearlayout_Sys"
+                    android:visibility="gone">
+
+                    <ImageView
+                        style="@style/Main_ImageView_Sys"
+                        android:src="@drawable/light_selector_bg"/>
+
+                    <TextView
+
+                        style="@style/Main_TextView_Sys"
+                        android:text="拓展学习"/>
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/monitoring"
+                    style="@style/Main_Linearlayout_Sys"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        style="@style/Main_ImageView_Sys"
+                        android:src="@drawable/monitoring_selector_bg"/>
+
+                    <TextView
+                        style="@style/Main_TextView_Sys"
+                        android:gravity="bottom|center_horizontal"
+                        android:text="设置"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y40"
+        android:background="#a4b960"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/xlb"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:src="@drawable/fram"/>
+
+        <TextView
+            android:id="@+id/guanggao"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/guanggao"
+            android:textSize="@dimen/x20"/>
+
+    </LinearLayout>
+</LinearLayout>

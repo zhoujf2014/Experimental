@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/y800"
+              android:orientation="vertical">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/wait_rfid"
+        android:layout_width="@dimen/y600"
+        android:layout_height="@dimen/y600"
+        android:scaleType="center"
+        android:src="@drawable/fingerpoint_anim_bg"/>
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:text="请输入指纹"
+        android:textSize="@dimen/x35"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

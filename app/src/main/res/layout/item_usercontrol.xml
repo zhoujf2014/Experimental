@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:layout_margin="@dimen/x5">
+    <TextView
+        android:id="@+id/item_user_position"
+        style="@style/UserderList"
+        android:layout_width="@dimen/x80"/>
+    <TextView
+        android:id="@+id/item_user_name"
+        style="@style/UserderList"/>
+    <TextView
+        android:id="@+id/item_user_password"
+        style="@style/UserderList" />
+    <TextView
+        android:id="@+id/item_user_type"
+        style="@style/UserderList" />
+    <TextView
+        android:id="@+id/item_user_rfid"
+        style="@style/UserderList" />
+    <TextView
+        android:id="@+id/item_user_fingerprint"
+        style="@style/UserderList"/>
+    <TextView
+        android:id="@+id/item_user_update"
+        style="@style/UserderList"
+        android:layout_width="@dimen/x80"
+        android:text="       操" />
+    <TextView
+        android:id="@+id/item_user_delect"
+        style="@style/UserderList"
+        android:layout_width="@dimen/x80"
+        android:text="作      "/>
+</LinearLayout>

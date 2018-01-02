@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/light_nomal"
+            android:text="照明系统"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/x50"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/x100"
+            android:layout_weight="1"
+            android:background="#6888"
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无线调光："
+                    android:textSize="@dimen/x30"/>
+
+                <TextView
+                    android:id="@+id/light_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30"
+                    android:textSize="@dimen/x30"
+                    />
+            </LinearLayout>
+
+            <com.xw.repo.BubbleSeekBar
+                android:id="@+id/light_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x100"
+                android:layout_marginTop="@dimen/x60"
+                app:bsb_bubble_text_size="30dp"
+                app:bsb_hide_bubble="true"
+                app:bsb_max="100"
+                app:bsb_min="0"
+                app:bsb_progress="0"
+                app:bsb_second_track_color="@color/red"
+                app:bsb_section_count="1"
+                app:bsb_section_text_position="bottom_sides"
+                app:bsb_section_text_size="@dimen/x30"
+                app:bsb_show_progress_in_float="false"
+                app:bsb_show_section_mark="true"
+                app:bsb_show_thumb_text="false"
+                app:bsb_track_color="@color/blue"
+                app:bsb_track_size="@dimen/x20"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/x100"
+            android:layout_weight="1"
+            android:background="#5222"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="智能调光："
+                android:textSize="@dimen/x30"/>
+
+            <Button
+                android:id="@+id/light_smartlight"
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/x80"
+                android:layout_marginTop="@dimen/x60"
+                android:background="@drawable/auto_button_blue_sel"
+                android:text="开启"
+                android:textSize="@dimen/x40"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

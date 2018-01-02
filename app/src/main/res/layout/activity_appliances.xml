@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/appliances_nomal"
+            android:text="家电系统"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/appliances_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="智能电视"
+            android:textSize="@dimen/x35"/>
+
+        <LinearLayout
+            android:id="@+id/appliances_remote"
+            android:layout_width="@dimen/y500"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_ll"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/control_power"
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/x80"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x30"
+                android:background="@drawable/control_power_selector"/>
+
+            <LinearLayout
+                android:id="@+id/control_chazuo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y50"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/control_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电流:555.66A"
+                    android:textSize="@dimen/x30"/>
+
+                <TextView
+                    android:id="@+id/control_w"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x35"
+                    android:text="功率:555.66kw"
+                    android:layout_marginBottom="@dimen/x50"
+                    android:textSize="@dimen/x30"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/control_ly"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/ptz_bg"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/control_top_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/control_left_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@null"/>
+
+                    <ImageButton
+                        android:layout_margin="@dimen/x25"
+                        android:id="@+id/control_ok_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/control_ok_selector"/>
+
+                    <ImageButton
+                        android:id="@+id/control_right_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/control_bottom_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/control_other"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y100"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/control_other1"
+                    android:layout_width="@dimen/x80"
+                    android:layout_height="@dimen/x80"
+                    android:background="@drawable/control_other_selector"/>
+
+                <ImageView
+                    android:id="@+id/control_other2"
+                    android:layout_width="@dimen/x80"
+                    android:layout_height="@dimen/x80"
+                    android:layout_marginLeft="@dimen/x50"
+                    android:background="@drawable/control_other_selector"/>
+
+                <ImageView
+                    android:id="@+id/control_other3"
+                    android:layout_width="@dimen/x80"
+                    android:layout_height="@dimen/x80"
+                    android:layout_marginLeft="@dimen/x50"
+                    android:background="@drawable/control_other_selector"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/appliances_radiogroup"
+            android:layout_width="@dimen/y100"
+            android:layout_height="@dimen/y700"
+            android:background="#66e1bdbd"  >
+
+            <RadioButton
+                android:id="@+id/appliances_radiobutton_fengshan"
+                style="@style/Appliances_RadioButton"
+                android:drawableTop="@drawable/fengshan_selector"
+                android:text="风扇"/>
+
+            <RadioButton
+                android:id="@+id/appliances_radiobutton_dianshi"
+                style="@style/Appliances_RadioButton"
+                android:drawableTop="@drawable/dianshi_selector"
+                android:text="电视"/>
+
+            <RadioButton
+                android:id="@+id/appliances_radiobutton_yinxiang"
+                style="@style/Appliances_RadioButton"
+                android:drawableTop="@drawable/yinxiang_selector"
+                android:text="音响"/>
+
+            <RadioButton
+                android:id="@+id/appliances_radiobutton_chazuo"
+                style="@style/Appliances_RadioButton"
+                android:drawableTop="@drawable/chazuo_selector"
+                android:text="插座"/>
+        </RadioGroup>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x250"
+            android:layout_marginTop="@dimen/x250"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/control_study"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/x60"
+                android:background="@drawable/control_study_selector"/>
+
+            <TextView
+                android:id="@+id/study"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学习功能"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/expand_nomal"
+            android:text="门禁系统"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/espand_surfaceView"
+            android:layout_width="@dimen/x550"
+            android:layout_height="@dimen/x400"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/x80"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/x50"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/access_control"
+                style="@style/Menjin_Text_State"
+                android:text="门禁管理"/>
+
+            <TextView
+                android:id="@+id/user_control"
+                style="@style/Menjin_Text_State"
+                android:text="用户管理"/>
+
+            <TextView
+                android:id="@+id/message_control"
+                style="@style/Menjin_Text_State"
+                android:text="图像留言" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

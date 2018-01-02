@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages">
+        <item>请选择用户类型</item>
+        <item>管理员 </item>
+        <item>普通用户</item>
+
+    </string-array>
+    <string-array name="limit_percent_lo">
+
+        <item> "     "  -0%</item>
+        <item> "     "  -1%</item>
+        <item> "     "  -2%</item>
+        <item> "     "  -3%</item>
+        <item> "     "  -4%</item>
+        <item> "     "  -5%</item>
+        <item>  "     " -6%</item>
+        <item> "     "  -7%</item>
+        <item> "     "  -8%</item>
+        <item> "     "  -9%</item>
+        <item> "    "  -10%</item>
+
+    </string-array>
+    <string-array name="limit_percent_hight">
+
+        <item> "     "  +0%</item>
+        <item> "     "  +1%</item>
+        <item> "     "  +2%</item>
+        <item> "     "  +3%</item>
+        <item> "     "  +4%</item>
+        <item> "     "  +5%</item>
+        <item>  "     " +6%</item>
+        <item> "     "  +7%</item>
+        <item> "     "  +8%</item>
+        <item> "     "  +9%</item>
+        <item> "    "  +10%</item>
+
+    </string-array>
+
+    <string-array name="Port_1">
+        <item>无</item>
+        <item>433通信模块</item>
+        <item> 315通信模块</item>
+        <item> ZigBee通信模块</item>
+        <item> WIFI通信模块</item>
+        <item> Bluetooth通信模块</item>
+    </string-array>
+    <string-array name="WelcomWord">
+        <item>欢迎使用智慧农业物联网管理实训台</item>
+        <item>国泰安，让教育更智慧。</item>
+        <item> 博采众长，开拓创新，包容合作，发展现代高效农业，加快农业产业结构调整。</item>
+        <item> 富强  民主  文明  和谐  自由  平等  公正  法治  爱国  敬业  诚信  友善</item>
+        <item> 落实科学发展观，推进农业综合开发，搞好农业综合开发，推进现代农业发展！</item>
+        <item> 游农耕古文明，赏科技新魅力。</item>
+    </string-array>
+
+    <string-array name="Port_2">
+
+        <item>1.44吋LCD显示模块</item>
+        <item>4*4矩阵键盘模块</item>
+        <item>RFID读写模块</item>
+        <item>语音识别模块</item>
+        <item>传感器模拟模块</item>
+        <item>光照强度检测模块</item>
+        <item>含量检测模块</item>
+        <item>红外人体感应模块</item>
+        <item>雨水检测模块</item>
+        <item>温湿度检测模块</item>
+        <item>大气压强检测模块</item>
+        <item>继电器控制模块</item>
+    </string-array>
+
+
+    <string-array name="Port_3">
+        <item>无</item>
+        <item>1.44吋LCD显示模块</item>
+        <item>4*4矩阵键盘模块</item>
+        <item>RFID读写模块</item>
+        <item>语音识别模块</item>
+        <item>传感器模拟模块</item>
+        <item>光照强度检测模块</item>
+        <item>含量检测模块</item>
+        <item>红外人体感应模块</item>
+        <item>雨水检测模块</item>
+        <item>温湿度检测模块</item>
+        <item>大气压强检测模块</item>
+        <item>继电器控制模块</item>
+    </string-array>
+    <string-array name="Port_4">
+
+        <item> 无</item>
+        <item> LED双色点阵显示模块</item>
+        <item> 4.3吋触摸屏模块</item>
+        <item> 电动遮阳帘控制展示板</item>
+        <item> 喷雾控制展示板</item>
+        <item> 排风控制展示板</item>
+        <item> 空气加热控制展示板</item>
+        <item> 生长灯控制展示板</item>
+        <item> 电源自动切换控制展示板</item>
+    </string-array>
+
+    <string-array name="SettingOther_Node_addr">
+        <item> 无</item>
+        <item> LED双色点阵显示模块</item>
+        <item> 4.3吋触摸屏模块</item>
+        <item> 电动遮阳帘控制展示板</item>
+        <item> 喷雾控制展示板</item>
+        <item> 排风控制展示板</item>
+        <item> 空气加热控制展示板</item>
+        <item> 生长灯控制展示板</item>
+        <item> 电源自动切换控制展示板</item>
+    </string-array>
+
+    <string-array name="SettingOther_Rever_time">
+        <item> 无</item>
+        <item> LED双色点阵显示模块</item>
+        <item> 4.3吋触摸屏模块</item>
+        <item> 电动遮阳帘控制展示板</item>
+        <item> 喷雾控制展示板</item>
+        <item> 排风控制展示板</item>
+        <item> 空气加热控制展示板</item>
+        <item> 生长灯控制展示板</item>
+        <item> 电源自动切换控制展示板</item>
+    </string-array>
+
+
+    <string-array name="SettingOther_wait">
+        <item> LED双色点阵显示模块</item>
+        <item> 4.3吋触摸屏模块</item>
+        <item> 电动遮阳帘控制展示板</item>
+        <item> 喷雾控制展示板</item>
+        <item> 排风控制展示板</item>
+        <item> 空气加热控制展示板</item>
+        <item> 生长灯控制展示板</item>
+        <item> 电源自动切换控制展示板</item>
+    </string-array>
+
+
+
+</resources>

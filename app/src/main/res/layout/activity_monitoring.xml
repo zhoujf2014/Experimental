@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/setting_normal"
+            android:text="监控系统"
+            />
+    </RelativeLayout>
+
+        <SurfaceView
+            android:layout_marginTop="20dp"
+            android:id="@+id/video_real"
+            android:layout_width="match_parent"
+            android:layout_weight="100"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:id="@+id/ptz_control_ly"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ptz_bg"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ptz_top_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ptz_left_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@null"/>
+
+                <ImageButton
+                    android:id="@+id/ptz_flip_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/ptz_turn_selector"
+                    android:visibility="invisible"/>
+
+                <ImageButton
+                    android:id="@+id/ptz_right_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@null"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ptz_bottom_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+</LinearLayout>

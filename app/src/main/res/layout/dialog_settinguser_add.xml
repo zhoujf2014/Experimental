@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:gravity="center"
+
+              android:orientation="vertical"
+              android:padding="30dp"
+    >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="@dimen/add_user_height"
+        android:gravity="center_vertical"
+        android:text="用户名："
+        android:textSize="@dimen/enter_dialog_textsize"/>
+
+    <EditText
+        android:id="@+id/dialog_settinguser_username"
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_auto_blue_selector"
+        android:hint="请输入用户名"
+        android:paddingLeft="@dimen/x20"/>
+
+
+    <TextView
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="@dimen/add_user_height"
+        android:gravity="center_vertical"
+        android:text="用户类型："
+        android:textSize="@dimen/enter_dialog_textsize"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <Spinner
+            android:id="@+id/dialog_settinguser_type"
+            android:layout_width="@dimen/add_user_width"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_auto_blue_selector"
+            android:entries="@array/languages"
+            ></Spinner>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="@dimen/add_user_height"
+        android:layout_marginTop="@dimen/x5"
+        android:gravity="center_vertical"
+        android:text="密码："
+        android:textSize="@dimen/enter_dialog_textsize"/>
+
+    <EditText
+        android:id="@+id/dialog_settinguser_enterpassword"
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_auto_blue_selector"
+        android:hint="请输入密码"
+        android:paddingLeft="@dimen/x20"
+        />
+
+    <TextView
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="@dimen/add_user_height"
+        android:layout_marginTop="@dimen/x5"
+        android:gravity="center_vertical"
+        android:text="RFID："
+        android:textSize="@dimen/enter_dialog_textsize"/>
+
+    <TextView
+        android:id="@+id/dialog_settinguser_rfid"
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_auto_blue_selector"
+        android:gravity="center"
+        android:hint="点击刷卡"
+        android:paddingLeft="@dimen/x20"
+        android:textSize="@dimen/x30"
+        />
+
+    <TextView
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="@dimen/add_user_height"
+        android:layout_marginTop="@dimen/x5"
+        android:gravity="center_vertical"
+        android:text="指纹："
+        android:textSize="@dimen/enter_dialog_textsize"/>
+
+    <TextView
+
+        android:id="@+id/dialog_settinguser_fingerpiont"
+        android:layout_width="@dimen/add_user_width"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_auto_blue_selector"
+        android:gravity="center"
+        android:hint="点击录入"
+        android:paddingLeft="@dimen/x20"
+        android:textSize="@dimen/x30"
+        />
+
+
+    <LinearLayout
+        android:layout_width="@dimen/add_user_width"
+
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/dialog_settinguser_confir"
+
+
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x50"
+            android:layout_margin="@dimen/x50"
+            android:layout_weight="1"
+            android:background="@drawable/btn_auto_blue_selector"
+            android:text="确定"/>
+
+        <Button
+            android:id="@+id/dialog_settinguser_cancel"
+
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x50"
+            android:layout_margin="@dimen/x50"
+            android:layout_weight="1"
+            android:background="@drawable/btn_auto_blue_selector"
+            android:text="取消"/>
+    </LinearLayout>
+</LinearLayout>

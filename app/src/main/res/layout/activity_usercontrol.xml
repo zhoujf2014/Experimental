@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
+
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@drawable/usercontrol"
+            android:text="用户管理"/>
+    </RelativeLayout>
+
+    <ListView
+
+        android:id="@+id/user_control_lv"
+        android:layout_width="@dimen/y1050"
+        android:layout_height="@dimen/x500"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/x35"
+        android:background="@drawable/bg_ll"
+        android:padding="@dimen/x20"/>
+
+    <Button
+        android:id="@+id/user_control_add"
+        android:layout_width="@dimen/x150"
+        android:layout_height="@dimen/x60"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/x8"
+        android:text="添加用户"
+        android:textSize="@dimen/x25"/>
+
+</LinearLayout>
