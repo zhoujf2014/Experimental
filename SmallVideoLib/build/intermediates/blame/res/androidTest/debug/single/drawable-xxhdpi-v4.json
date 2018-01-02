@@ -4,12 +4,12 @@
         "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\record_delete_check_press.png"
     },
     {
-        "merged": "C:\\Users\\zhoujf\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\record_delete_check_normal.png",
-        "source": "C:\\Users\\zhoujf\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\record_delete_check_normal.png"
-    },
-    {
         "merged": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\record_next_press.png",
         "source": "C:\\Users\\junfu\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\record_next_press.png"
+    },
+    {
+        "merged": "C:\\Users\\zhoujf\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\record_delete_check_normal.png",
+        "source": "C:\\Users\\zhoujf\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\bundles\\debug\\res\\drawable-xxhdpi-v4\\record_delete_check_normal.png"
     },
     {
         "merged": "C:\\Users\\zhoujf\\Desktop\\Experimental\\SmallVideoLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xxhdpi-v4\\record_camera_switch_disable.png",
