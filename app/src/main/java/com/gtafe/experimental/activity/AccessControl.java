@@ -39,7 +39,7 @@ public class AccessControl extends AppCompatActivity implements SurfaceHolder.Ca
         //我来自笔记本
         //我来自电脑
         //我来自电脑AS
-        //我来自笔记本AS
+        //我来自笔记本ASs
 //        Intent intent = new Intent();
 //        intent.setAction("acom.gtafe.testcamera.restartLAUNCHER");
 //        sendBroadcast(intent);
