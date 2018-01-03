@@ -386,9 +386,12 @@ public class SocketService extends Service {
                 break;
             case 0x35:
                 // 0x34: 键盘
-                Intent intent = new Intent(this, AccessControl.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if (!mDataBean.isCalling()) {
+                    mDataBean.setCalling(true);
+                    Intent intent = new Intent(this, AccessControl.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
 
                 break;
         }

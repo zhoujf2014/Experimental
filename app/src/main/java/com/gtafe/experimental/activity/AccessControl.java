@@ -48,6 +48,7 @@ public class AccessControl extends BaseActivity implements SurfaceHolder.Callbac
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mDataBean.setCalling(false);
         //我来自笔记本
         //我来自电脑
         //我来自电脑AS
@@ -242,11 +243,14 @@ public class AccessControl extends BaseActivity implements SurfaceHolder.Callbac
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.oppen:
+
                 finish();
                 break;
             case R.id.refues:
+
                 finish();
                 break;
         }
     }
+
 }

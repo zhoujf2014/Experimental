@@ -13,6 +13,16 @@ public class DataBean {
 
     private boolean safeState;//安全模式
 
+    public boolean isCalling() {
+        return calling;
+    }
+
+    public void setCalling(boolean calling) {
+        this.calling = calling;
+    }
+
+    private boolean calling;//安全模式
+
 
 
     private double temperature;//温度
