@@ -5,38 +5,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+>
 
-    android:padding="30dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/color_title_height"
+        android:background="@color/color_title_bg">
 
+        <ImageView
+            android:id="@+id/back"
+            style="@style/Title_back"/>
 
-    <SurfaceView
-        android:id="@+id/surfaceView"
-        android:layout_width="600dp"
-        android:layout_height="450dp"
-        android:layout_gravity="center"/>
+        <TextView
+            style="@style/TitleText"
+            android:drawableLeft="@mipmap/appliances_nomal"
+            android:text="呼叫系统"/>
+    </RelativeLayout>
 
     <LinearLayout
+        android:padding="@dimen/x20"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/oppen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_link"
-            android:text="开门"/>
+        <SurfaceView
+            android:layout_margin="@dimen/x35"
+            android:id="@+id/surfaceView"
+            android:layout_width="@dimen/y700"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
 
-        <Button
-            android:id="@+id/refues"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/x50"
-            android:background="@drawable/bg_link"
-            android:text="取消"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/oppen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_link"
+                android:text="开门"/>
+
+            <Button
+                android:id="@+id/refues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x50"
+                android:background="@drawable/bg_link"
+                android:text="取消"/>
 
 
+        </LinearLayout>
     </LinearLayout>
+
 
 </LinearLayout>

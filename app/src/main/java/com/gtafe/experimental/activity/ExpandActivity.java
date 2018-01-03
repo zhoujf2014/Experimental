@@ -55,7 +55,6 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
         switch (view.getId()) {
             case R.id.access_control:
 
-
                 break;
             case R.id.user_control:
                 startActivity(new Intent(mContext, UserControlActivity.class));

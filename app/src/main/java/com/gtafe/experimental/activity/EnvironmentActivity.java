@@ -68,12 +68,12 @@ public class EnvironmentActivity extends BaseActivity {
     }
 
     private void refreshView() {
-        mEnvironmentLight.setText("光照强度："+mDataBean.getSunLight() + "Lux");
-        mEnvironmentTemp.setText("温度："+mDataBean.getTemperature() + "℃");
-        mEnvironmentWet.setText("湿度："+mDataBean.getHumidity() + " %");
+        mEnvironmentLight.setText("光照强度：" + mDataBean.getSunLight() + "Lux");
+        mEnvironmentTemp.setText("温度：" + mDataBean.getTemperature() + "℃");
+        mEnvironmentWet.setText("湿度：" + mDataBean.getHumidity() + " %");
         mLightSeekbar.setProgress(mDataBean.getLampLight());
 
-        mCurtentOppen.setText("开启");
+        mCurtentOppen.setText("打开");
         mCurtentOppen.setTextColor(Color.BLACK);
         mCurtentClose.setText("关闭");
         mCurtentClose.setTextColor(Color.BLACK);
@@ -82,10 +82,11 @@ public class EnvironmentActivity extends BaseActivity {
 
         switch (mDataBean.getCurrentState()) {
             case 1:
-                mCurtentOppen.setText("正在开启");
+                mCurtentOppen.setText("正在打开");
                 mCurtentOppen.setTextColor(Color.GREEN);
                 break;
             case 2:
+
                 mCurtentClose.setText("正在关闭");
                 mCurtentClose.setTextColor(Color.GREEN);
                 break;
@@ -96,6 +97,10 @@ public class EnvironmentActivity extends BaseActivity {
             case 0:
                 mCurtentOppen.setText("未连接");
                 mCurtentOppen.setTextColor(Color.RED);
+                mCurtentClose.setText("未连接");
+                mCurtentClose.setTextColor(Color.RED);
+                mCurtentStop.setText("未连接");
+                mCurtentStop.setTextColor(Color.RED);
                 break;
         }
     }
@@ -109,19 +114,46 @@ public class EnvironmentActivity extends BaseActivity {
 
     @OnClick({R.id.textView, R.id.light_seekbar, R.id.curtent_oppen, R.id.curtent_stop, R.id.curtent_close, R.id.light_smartlight})
     public void onViewClicked(View view) {
+        byte[] bytes = new byte[8];
+        bytes[0] = 0x7f;
+        bytes[1] = (byte) 0xBB;
+        bytes[2] = 0x20;
+        bytes[6] = 0x0d;
+        bytes[7] = 0x0a;
+
+
         switch (view.getId()) {
-            case R.id.textView:
-                break;
-            case R.id.light_seekbar:
-                break;
+
             case R.id.curtent_oppen:
+                bytes[3] = 0x31;
+                bytes[4] = 0x1;
                 break;
             case R.id.curtent_stop:
+                bytes[3] = 0x31;
+                bytes[4] = 0x03;
                 break;
             case R.id.curtent_close:
+                bytes[3] = 0x31;
+                bytes[4] = 0x02;
                 break;
             case R.id.light_smartlight:
-                break;
+
+           /*    bytes = new byte[10];
+                bytes[0] = 0x7f;
+                bytes[1] = (byte) 0xBB;
+                bytes[2] = 0x20;
+                bytes[3] = 0x32;
+                bytes[4] = 0x01;
+                bytes[5] = 0x0B;
+                if (mDataBean.isSmartLightState()) {
+
+                    bytes[6] = 0x01;
+                }
+                bytes[7] = 0x00;
+                bytes[8] = 0x0d;
+                bytes[9] = 0x0a;*/
+                return;
         }
+        sendDataToService(bytes);
     }
 }

@@ -6,8 +6,10 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.gtafe.experimental.Constant.Constant;
+import com.gtafe.experimental.activity.AccessControl;
 import com.gtafe.experimental.app.ExperimentalApplication;
 import com.gtafe.experimental.bean.DataBean;
 import com.gtafe.experimental.bean.PostObj;
@@ -246,6 +248,7 @@ public class SocketService extends Service {
         Log.e(TAG, "interpretingData:all=" + Util.byteToHexString(buffer));
 
         byte b = 1;
+        int length = buffer.length;
         switch (buffer[3]) {
             //  Double aMoisture = new Double(buffer[8] > 9 ? buffer[7] + "." + buffer[8] : buffer[7] + ".0" + buffer[8]);
 
@@ -323,7 +326,10 @@ public class SocketService extends Service {
                 break;
             case 0x22:
                 //     0x22：温湿度探测模块
-
+                if ((length < 11)) {
+                    Toast.makeText(this, "温度，下位机上传错误数据", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Double temperature = new Double(buffer[6] > 9 ? buffer[5] + "." + buffer[6] : buffer[5] + ".0" + buffer[6]);
                 mDataBean.setTemperature(temperature);
                 Double humidity = new Double(buffer[8] > 9 ? buffer[7] + "." + buffer[8] : buffer[7] + ".0" + buffer[8]);
@@ -333,6 +339,10 @@ public class SocketService extends Service {
                 break;
             case 0x23:
                 //     0x23：光照探测模块
+                if ((length < 11)) {
+                    Toast.makeText(this, "温度，下位机上传错误数据", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String s = "" + buffer[5] + (buffer[6] < 9 ? "0" + buffer[6] : buffer[6]) + (buffer[7] < 9 ? "0" + buffer[7] : buffer[7]);
                 int light = Integer.parseInt(s);
                 if (mDataBean.setSunLight(light)) {
@@ -372,6 +382,13 @@ public class SocketService extends Service {
                 break;
             case 0x34:
                 // 0x34: 红外转发模块
+
+                break;
+            case 0x35:
+                // 0x34: 键盘
+                Intent intent = new Intent(this, AccessControl.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
 
                 break;
         }
@@ -423,9 +440,9 @@ public class SocketService extends Service {
     }
 
     private void sendDataToServices(byte[] bytes) {
-        Log.e(TAG, "sendDataToServices: "+ Util.byte2String(bytes));
+        Log.e(TAG, "sendDataToServices: " + Util.byte2String(bytes));
         synchronized (this) {
-//判断使用什么来通信：wifi:AA/串口:BB
+            //判断使用什么来通信：wifi:AA/串口:BB
             if (bytes[1] == 0xbb) {
                 try {
                     mOutputStream.write(bytes);
@@ -449,9 +466,7 @@ public class SocketService extends Service {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 
     @Override
