@@ -12,7 +12,9 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gtafe.experimental.Constant.Constant;
 import com.gtafe.experimental.R;
+import com.gtafe.experimental.utils.RecordThread;
 
 import java.io.IOException;
 
@@ -39,6 +41,7 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
     @BindView(R.id.message_control)
     TextView mMessageControl;
 
+
     @Override
     protected int setView() {
         return R.layout.activity_espand;
@@ -54,14 +57,15 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.access_control:
-
+               // Toast.makeText(mContext, "", Toast.LENGTH_SHORT).show();
+               // startActivity(new Intent(mContext, SettingActivity.class));
                 break;
             case R.id.user_control:
                 startActivity(new Intent(mContext, UserControlActivity.class));
                 break;
             case R.id.message_control:
-
                 MediaRecorderActivity.goSmallVideoRecorder(this, VideoPlayerActivity.class.getName(), null);
+
                 break;
         }
     }
@@ -69,7 +73,8 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
     @Override
     protected void onResume() {
         super.onResume();
-       if (null == mCamera) {
+
+        if (null == mCamera) {
             mCamera = getCameraInstance();
             if (mCamera == null) {
                 return;
@@ -87,7 +92,8 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
     @Override
     protected void onPause() {
         super.onPause();
-        if(mCamera!=null){
+
+        if (mCamera != null) {
             if (mCamera == null) {
                 return;
             }
@@ -98,7 +104,6 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
             mCamera = null;
             Log.e(TAG, "surface:surfaceDestroyed: ");
         }
-
     }
 
     @Override
@@ -123,7 +128,8 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         refreshCamera(); // 这一步是否多余？在以后复杂的使用场景下，此步骤是必须的。
-        int rotation = getDisplayOrientation(); //获取当前窗口方向
+      //  int rotation = getDisplayOrientation(); //获取当前窗口方向
+        int rotation = Constant.ROTATION;
         if (mCamera == null) {
             return;
         }
@@ -180,16 +186,16 @@ public class ExpandActivity extends BaseActivity implements SurfaceHolder.Callba
         int degrees = 0;
         switch (rotation) {
             case Surface.ROTATION_0:
-                degrees = 270;
-                break;
-            case Surface.ROTATION_90:
                 degrees = 0;
                 break;
-            case Surface.ROTATION_180:
+            case Surface.ROTATION_90:
                 degrees = 90;
                 break;
-            case Surface.ROTATION_270:
+            case Surface.ROTATION_180:
                 degrees = 180;
+                break;
+            case Surface.ROTATION_270:
+                degrees = 270;
                 break;
         }
 

@@ -35,7 +35,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x10">
+                android:layout_marginTop="@dimen/x30">
 
                 <LinearLayout
                     android:id="@+id/environment"
@@ -104,16 +104,16 @@
 
                     <TextView
                         android:id="@+id/recorder_count"
-                        android:layout_width="@dimen/x40"
-                        android:layout_height="@dimen/y40"
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
                         android:layout_alignParentRight="true"
                         android:layout_margin="@dimen/x25"
                         android:background="@drawable/bg_red_recorder"
                         android:gravity="center"
                         android:padding="@dimen/x5"
                         android:text="3"
-                        android:textSize="@dimen/x20"
-                        android:visibility="gone"/>
+                        android:textSize="@dimen/x25"
+                        android:visibility="visible"/>
 
                 </RelativeLayout>
 
@@ -151,6 +151,17 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x60"
+                android:text=""/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+          />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -179,7 +190,7 @@
             android:gravity="center"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:text="@string/guanggao"
+            android:text="【键盘功能提示】 上翻：（长按）留言    下翻：呼叫"
             android:textSize="@dimen/x20"/>
 
     </LinearLayout>

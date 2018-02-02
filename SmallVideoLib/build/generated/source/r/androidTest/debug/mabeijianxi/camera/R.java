@@ -8,13 +8,13 @@ package mabeijianxi.camera;
 
 public final class R {
     public static final class color {
-        public static final int camera_bg = 0x7f040000;
-        public static final int camera_progress_delete = 0x7f040001;
-        public static final int camera_progress_overflow = 0x7f040002;
-        public static final int camera_progress_split = 0x7f040003;
-        public static final int camera_progress_three = 0x7f040004;
-        public static final int color_381902 = 0x7f040005;
-        public static final int transparent2 = 0x7f040006;
+        public static final int camera_bg = 0x7f010000;
+        public static final int camera_progress_delete = 0x7f010001;
+        public static final int camera_progress_overflow = 0x7f010002;
+        public static final int camera_progress_split = 0x7f010003;
+        public static final int camera_progress_three = 0x7f010004;
+        public static final int color_381902 = 0x7f010005;
+        public static final int transparent2 = 0x7f010006;
     }
     public static final class drawable {
         public static final int record_camera_flash_led_off_disable = 0x7f020000;
@@ -41,19 +41,19 @@ public final class R {
         public static final int small_video_shoot = 0x7f020015;
     }
     public static final class id {
-        public static final int bottom_layout = 0x7f060007;
-        public static final int record_camera_led = 0x7f060004;
-        public static final int record_camera_switcher = 0x7f060005;
-        public static final int record_controller = 0x7f060009;
-        public static final int record_delete = 0x7f060008;
-        public static final int record_preview = 0x7f060003;
-        public static final int record_progress = 0x7f060000;
-        public static final int title_back = 0x7f060002;
-        public static final int title_layout = 0x7f060001;
-        public static final int title_next = 0x7f060006;
+        public static final int bottom_layout = 0x7f030000;
+        public static final int record_camera_led = 0x7f030001;
+        public static final int record_camera_switcher = 0x7f030002;
+        public static final int record_controller = 0x7f030003;
+        public static final int record_delete = 0x7f030004;
+        public static final int record_preview = 0x7f030005;
+        public static final int record_progress = 0x7f030006;
+        public static final int title_back = 0x7f030007;
+        public static final int title_layout = 0x7f030008;
+        public static final int title_next = 0x7f030009;
     }
     public static final class layout {
-        public static final int activity_media_recorder = 0x7f030000;
+        public static final int activity_media_recorder = 0x7f040000;
     }
     public static final class string {
         public static final int action_back = 0x7f050000;

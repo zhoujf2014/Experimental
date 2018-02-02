@@ -21,24 +21,55 @@ public class DataBean {
         this.calling = calling;
     }
 
-    private boolean calling;//安全模式
 
+    private int smartLightL;//智能灯打开阀值
+    private int smartLightH;//智能灯关闭阀值
+
+
+    private int powerLimit;//智能灯关闭阀值
+    private boolean calling;//安全模式
 
 
     private double temperature;//温度
     private double humidity;//湿度
     private boolean smartLightState;//智能灯光
     private int currentState;//窗帘
-    private double voltage;//电压
-    private int power;//电压
+    private int chazuoState;//插座状态
+    private int fengshan;//插座状态
+    private double electricity;//电压
+    private double electricity_all;//电压
+    private double votage_all;//电压
+    private int power;//功率
     private boolean isCurtainAuto;//窗帘
-
     private int safe_gas;//燃气
     private int safe_smoke;//烟气
     private int safe_flame;//火焰
     private int safe_infrared;//红外
     private int safe_voice;//语音报警
 
+    public int getFengshan() {
+        return fengshan;
+    }
+
+    public void setFengshan(int fengshan) {
+        this.fengshan = fengshan;
+    }
+
+    public int getSmartLightL() {
+        return smartLightL;
+    }
+
+    public void setSmartLightL(int smartLightL) {
+        this.smartLightL = smartLightL;
+    }
+
+    public int getSmartLightH() {
+        return smartLightH;
+    }
+
+    public void setSmartLightH(int smartLightH) {
+        this.smartLightH = smartLightH;
+    }
 
     public int getPower() {
         return power;
@@ -51,7 +82,32 @@ public class DataBean {
         return false;
 
     }
+    public int getChazuoState() {
+        return chazuoState;
+    }
 
+    public boolean setChazuoState(int chazuoState) {
+        if (this.chazuoState == chazuoState)
+            return true;
+        this.chazuoState = chazuoState;
+        return false;
+    }
+
+    public double getElectricity_all() {
+        return electricity_all;
+    }
+
+    public void setElectricity_all(double electricity_all) {
+        this.electricity_all = electricity_all;
+    }
+
+    public double getVotage_all() {
+        return votage_all;
+    }
+
+    public void setVotage_all(double votage_all) {
+        this.votage_all = votage_all;
+    }
     public boolean isSafeState() {
         return safeState;
     }
@@ -114,6 +170,13 @@ public class DataBean {
         this.smartLightState = smartLightState;
         return false;
     }
+    public int getPowerLimit() {
+        return powerLimit;
+    }
+
+    public void setPowerLimit(int powerLimit) {
+        this.powerLimit = powerLimit;
+    }
 
     public int getCurrentState() {
         return currentState;
@@ -126,14 +189,14 @@ public class DataBean {
         return false;
     }
 
-    public double getVoltage() {
-        return voltage;
+    public double getElectricity() {
+        return electricity;
     }
 
-    public boolean setVoltage(double voltage) {
-        if (this.voltage == voltage)
+    public boolean setElectricity(double electricity) {
+        if (this.electricity == electricity)
             return true;
-        this.voltage = voltage;
+        this.electricity = electricity;
         return false;
     }
 

@@ -248,14 +248,15 @@ public class RecorderVideoListActivity extends BaseActivity implements AdapterVi
                     } else {
                         mItemRecorderliestPosition.setBackgroundResource(R.drawable.bg_new_nor);
                     }
-                    if (files.length > 0) {
-                        File f = null;
-                        for (File file1 : files) {
-                            if (file1.getName().endsWith(".mp4")) {
-                                f = file1;
-                                break;
-                            }
+
+                    File f = null;
+                    for (File file1 : files) {
+                        if (file1.getName().endsWith(".mp4")) {
+                            f = file1;
+                            break;
                         }
+                    }
+                    if (f != null) {
                         String name = f.getName();
                         String fileName = name.substring(0, name.indexOf("."));
                         mItemRecorderliestTime.setText(getDuration(f.getAbsolutePath()));
@@ -263,6 +264,7 @@ public class RecorderVideoListActivity extends BaseActivity implements AdapterVi
                         mItemRecorderliestData.setText(DateFormat.format("MM-dd kk:mm:ss", Long.parseLong(fileName)));
                         mItemRecorderliestLength.setText((int) f.length() / 1024 + " kb");
                     }
+
                 }
             }
         }

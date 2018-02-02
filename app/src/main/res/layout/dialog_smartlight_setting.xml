@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/x30"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:paddingTop="@dimen/x20"
+            android:text="当光照低于"
+            android:textSize="@dimen/x30"/>
+
+        <EditText
+            android:gravity="center"
+            android:id="@+id/smartlight_limit_l"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y70"
+            android:layout_gravity="center"
+            android:textSize="@dimen/x35"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:paddingTop="@dimen/x20"
+            android:text="%，打开灯光"
+            android:textSize="@dimen/x30"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:paddingTop="@dimen/x20"
+            android:text="当光照高于"
+            android:textSize="@dimen/x30"/>
+
+        <EditText
+            android:gravity="center"
+            android:id="@+id/smartlight_limit_h"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y70"
+            android:layout_gravity="center"
+            android:textSize="@dimen/x35"></EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x10"
+            android:paddingTop="@dimen/x20"
+            android:text="%，关闭灯光"
+            android:textSize="@dimen/x30"/>
+    </LinearLayout>
+
+</LinearLayout>

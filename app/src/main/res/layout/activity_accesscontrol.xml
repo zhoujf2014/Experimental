@@ -9,6 +9,7 @@
 >
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="@dimen/color_title_height"
         android:background="@color/color_title_bg">
@@ -43,17 +44,17 @@
 
             <Button
                 android:id="@+id/oppen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_link"
+                android:layout_width="@dimen/x180"
+                android:layout_height="@dimen/x80"
+                android:background="@drawable/btn_auto_blue_selector"
                 android:text="开门"/>
 
             <Button
                 android:id="@+id/refues"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/x180"
+                android:layout_height="@dimen/x80"
                 android:layout_marginTop="@dimen/x50"
-                android:background="@drawable/bg_link"
+                android:background="@drawable/btn_auto_blue_selector"
                 android:text="取消"/>
 
 

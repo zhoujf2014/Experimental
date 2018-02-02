@@ -16,10 +16,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
-
 import com.gtafe.experimental.R;
-
-import mabeijianxi.camera.MediaRecorderBase;
 import mabeijianxi.camera.util.DeviceUtils;
 import mabeijianxi.camera.util.StringUtils;
 import mabeijianxi.camera.views.SurfaceVideoView;
@@ -59,6 +56,9 @@ public class VideoPlayerActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         // 防止锁屏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
+
 
         mPath = getIntent().getStringExtra("video_uri");
         Log.e(TAG, "onCreate: "+mPath );

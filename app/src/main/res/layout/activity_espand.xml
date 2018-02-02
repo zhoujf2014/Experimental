@@ -41,16 +41,20 @@
             android:orientation="vertical">
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/access_control"
                 style="@style/Menjin_Text_State"
                 android:text="门禁管理"/>
 
             <TextView
+                android:drawableTop="@drawable/usercontrol"
                 android:id="@+id/user_control"
                 style="@style/Menjin_Text_State"
+                android:layout_height="wrap_content"
                 android:text="用户管理"/>
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/message_control"
                 style="@style/Menjin_Text_State"
                 android:text="图像留言" />

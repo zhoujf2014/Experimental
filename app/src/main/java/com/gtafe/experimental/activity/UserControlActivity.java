@@ -1,10 +1,12 @@
 package com.gtafe.experimental.activity;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -19,6 +21,7 @@ import com.gtafe.experimental.R;
 import com.gtafe.experimental.app.ExperimentalApplication;
 import com.gtafe.experimental.bean.UserBean;
 import com.gtafe.experimental.bean.UserBeanDao;
+import com.gtafe.experimental.utils.Util;
 
 import java.io.File;
 import java.util.List;
@@ -32,6 +35,7 @@ import butterknife.OnClick;
  */
 
 public class UserControlActivity extends BaseActivity implements View.OnClickListener {
+    private static final String TAG = "UserControlActivity";
     @BindView(R.id.user_control_lv)
     ListView mUserControlLv;
     public List<UserBean> mUserBeens;
@@ -39,6 +43,7 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
     public AddViewHolder mAddViewHolder;
     public UserBeanDao mUserBeanDao;
     public UserlistAdapter mUserlistAdapter;
+    public int mFingerpiontid;
 
     @Override
     protected int setView() {
@@ -169,7 +174,7 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                     public void onClick(View v) {
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext)
                                 .setTitle("提示")
-                                .setMessage("是否删除用户 "+userBean.getName()+" ？")
+                                .setMessage("是否删除用户 " + userBean.getName() + " ？")
                                 .setNegativeButton("否", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -216,8 +221,8 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
         /*  private String rfid = null;
             private String fingerPoint = null;*/
 
-        private String rfid = "666";
-        private String fingerPoint = "666";
+        private String rfid ;
+        private String fingerPoint;
 
         AddViewHolder(View view) {
             ButterKnife.bind(this, view);
@@ -232,6 +237,8 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                 mDialogSettinguserEnterpassword.setText(userBean.getPassword());
                 mDialogSettinguserRfid.setText("点击修改");
                 mDialogSettinguserFingerpiont.setText("点击修改");
+                rfid = userBean.getRfid();
+                fingerPoint = userBean.getFingerprint();
 
             }
 
@@ -262,7 +269,6 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                     break;
                 case R.id.dialog_settinguser_fingerpiont:
                     View waitView_fingerpiont = View.inflate(mContext, R.layout.waiting_view_fingerpoint, null);
-
                     AlertDialog.Builder mBuilder_fingerpiont = new AlertDialog.Builder(mContext).setView(waitView_fingerpiont).setCancelable(false)
                             .setPositiveButton("取消", new DialogInterface.OnClickListener() {
                                 @Override
@@ -272,6 +278,28 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                             });
                     mDialog = mBuilder_fingerpiont.show();
                     leaning_fingerPoint = true;
+                    //发送指纹录入模式
+                    SharedPreferences sp = getSharedPreferences("fingerpiont", MODE_PRIVATE);
+                    mFingerpiontid = sp.getInt("fingerpiontid", 1);
+                    if (mFingerpiontid == 100) {
+                        mFingerpiontid = 1;
+                    } else {
+                        mFingerpiontid += 1;
+                    }
+                    sp.edit().putInt("fingerpiontid", mFingerpiontid).commit();
+
+                    byte[] sendBytes = new byte[9];
+                    sendBytes[0] = 0x7f;
+                    sendBytes[1] = 0x01;
+                    sendBytes[2] = 0x20;
+                    sendBytes[3] = 0x0A;
+                    sendBytes[4] = 0x02;
+                    sendBytes[5] = 0X0A;
+                    sendBytes[6] = (byte) mFingerpiontid;
+                    sendBytes[7] = 0x0d;
+                    sendBytes[8] = 0x0a;
+                    sendDataToService(sendBytes);
+
                     break;
                 case R.id.dialog_settinguser_confir:
 
@@ -287,18 +315,18 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                     String type = (String) mDialogSettinguserType.getSelectedItem();
                     String password = mDialogSettinguserEnterpassword.getText().toString().trim();
                     if (TextUtils.isEmpty(password)) {
-                        Toast.makeText(mContext, "请输入密码", Toast.LENGTH_SHORT).show();
-                        return;
+                        Toast.makeText(mContext, "未输入密码", Toast.LENGTH_SHORT).show();
+
                     }
                     if (TextUtils.isEmpty(rfid)) {
-                        Toast.makeText(mContext, "请录入RFID", Toast.LENGTH_SHORT).show();
-                        return;
+                        Toast.makeText(mContext, "未录入RFID", Toast.LENGTH_SHORT).show();
+
                     }
                     if (TextUtils.isEmpty(fingerPoint)) {
-                        Toast.makeText(mContext, "请输录入指纹", Toast.LENGTH_SHORT).show();
-                        return;
+                        Toast.makeText(mContext, "未录入指纹", Toast.LENGTH_SHORT).show();
+
                     }
-                    if (addUserBean==null){
+                    if (addUserBean == null) {
                         addUserBean = new UserBean();
                         addUserBean.setId(System.currentTimeMillis());
                         addUserBean.setName(userName);
@@ -307,7 +335,7 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
                         addUserBean.setRfid(rfid);
                         addUserBean.setFingerprint(fingerPoint);
                         mUserBeanDao.insert(addUserBean);
-                    }else {
+                    } else {
                         addUserBean.setName(userName);
                         addUserBean.setType(type);
                         addUserBean.setPassword(password);
@@ -325,40 +353,73 @@ public class UserControlActivity extends BaseActivity implements View.OnClickLis
         }
 
         public void setRfid(String s) {
-            if (mAlertDialog != null && mAlertDialog.isShowing()) {
+            if (mDialog != null && mDialog.isShowing()) {
                 rfid = s;
                 mDialogSettinguserRfid.setText("已录入");
                 mDialogSettinguserRfid.setTextColor(Color.GREEN);
-                mAlertDialog.dismiss();
+                mDialog.dismiss();
             }
         }
 
         public void setFingerpoint(String s) {
-            if (mAlertDialog != null && mAlertDialog.isShowing()) {
+            if (mDialog != null && mDialog.isShowing()) {
                 fingerPoint = s;
                 mDialogSettinguserFingerpiont.setText("已录入");
                 mDialogSettinguserFingerpiont.setTextColor(Color.GREEN);
-                mAlertDialog.dismiss();
+                mDialog.dismiss();
             }
         }
     }
 
 
-    boolean leaning_rfid = true;
-    boolean leaning_fingerPoint = true;
+    boolean leaning_rfid = false;
+    boolean leaning_fingerPoint = false;
 
     @Override
     protected void recievDataFromServer(byte[] bytes) {
         super.recievDataFromServer(bytes);
         //接收到信号
-        String s = "666";
-        if (leaning_rfid) {
-            mAddViewHolder.setRfid(s);
-            leaning_rfid = false;
-            leaning_fingerPoint = false;
-            //  mAddViewHolder.setFingerpoint(s);
+        Log.e(TAG, "onMessageEvent:截取前data " + Util.byteToHexStringData(bytes));
+
+        if (bytes[3] == 0x0A) {
+            String s = null;
+            switch (bytes[5]) {
+                case -35:
+                    //RFID
+                    if (leaning_rfid) {
+                        String s1 = Util.byteToHexStringData(bytes);
+                        s = Util.byteToHexStringData(bytes).substring(12, 20);
+                        Log.e(TAG, "onMessageEvent:截取前 " + s1 + "  截取后：" + s);
+                        mAddViewHolder.setRfid(s);
+                        leaning_rfid = false;
+                    }
+                    Log.e(TAG, "recievDataFromServerRFID: " + s);
+                    break;
+                case 0x0A:
+                    //指纹
+
+                    if (leaning_fingerPoint) {
+                        String s5 = Util.byteToHexStringData(bytes);
+                        Log.e(TAG, "onMessageEvent:截取前 " + s5 + "  截取后：" + s);
+
+                        mAddViewHolder.setFingerpoint(mFingerpiontid + "");
+                        leaning_fingerPoint = false;
+                    }
+                    Log.e(TAG, "recievDataFromServerFINGER: " + s);
+                    break;
+                case -18:
+                    //密码
+                    String s3 = Util.byteToHexStringData(bytes);
+                    s = Util.byteToHexStringData(bytes).substring(12, 28);
+                    Log.e(TAG, "onMessageEvent:截取前 " + s3 + "  截取后：" + s);
+                    break;
+
+            }
+
         }
 
 
     }
+
+
 }

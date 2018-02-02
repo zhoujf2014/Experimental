@@ -17,8 +17,52 @@
         <TextView
             style="@style/TitleText"
             android:drawableLeft="@mipmap/setting_normal"
-            android:text="设置管理"
+            android:text="门禁管理"
             />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/x100"
+        android:text="门禁方式设置"
+        android:textSize="@dimen/x40"/>
+
+    <LinearLayout
+        android:layout_width="@dimen/x600"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/x50"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/setting_rfid"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y80"
+            android:layout_marginLeft="@dimen/x50"
+            android:layout_weight="1"
+            android:text="RFID"
+            android:textSize="@dimen/x30"/>
+
+        <CheckBox
+            android:id="@+id/setting_fingerpoint"
+            android:layout_width="0dp"
+
+            android:layout_height="@dimen/y80"
+            android:layout_weight="1"
+            android:text="指纹"
+            android:textSize="@dimen/x30"/>
+
+        <CheckBox
+            android:id="@+id/setting_password"
+            android:layout_width="0dp"
+
+            android:layout_height="@dimen/y80"
+            android:layout_weight="1"
+            android:text="密码"
+            android:textSize="@dimen/x30"/>
+    </LinearLayout>
+
 
 </LinearLayout>

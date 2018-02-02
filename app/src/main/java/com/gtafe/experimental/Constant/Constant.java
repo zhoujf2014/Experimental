@@ -19,4 +19,5 @@ public class Constant {
     public static final int SAFE_STATE_NOMAL = 1;
     public static final int SAFE_STATE_ALARM = 2;
 
+    public static final int ROTATION =90;
 }

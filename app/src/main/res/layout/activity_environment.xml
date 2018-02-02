@@ -56,9 +56,9 @@
             android:layout_width="@dimen/x360"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginTop="-20dp"
             android:background="@drawable/bg_link"
+            android:gravity="center"
             android:padding="@dimen/x10"
             android:text="光照强度：30000Lux"
             android:textSize="@dimen/x25"/>
@@ -93,13 +93,21 @@
                         android:text="无线调光："
                         android:textSize="@dimen/x20"/>
 
+                    <TextView
+                        android:id="@+id/control_light"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/x35"
+                        android:text=""
+                        android:textSize="@dimen/x20"/>
+
                 </LinearLayout>
 
                 <com.xw.repo.BubbleSeekBar
-                    android:layout_gravity="center"
                     android:id="@+id/light_seekbar"
                     android:layout_width="@dimen/x300"
                     android:layout_height="@dimen/x40"
+                    android:layout_gravity="center"
                     android:layout_marginTop="@dimen/x40"
                     app:bsb_bubble_text_size="20dp"
                     app:bsb_hide_bubble="true"
@@ -107,6 +115,7 @@
                     app:bsb_min="0"
                     app:bsb_progress="0"
                     app:bsb_second_track_color="@color/blue"
+                    app:bsb_second_track_size="@dimen/x10"
                     app:bsb_section_count="1"
                     app:bsb_section_text_position="bottom_sides"
                     app:bsb_section_text_size="@dimen/x15"
@@ -114,7 +123,6 @@
                     app:bsb_show_section_mark="true"
                     app:bsb_show_thumb_text="false"
                     app:bsb_track_color="@color/bar_text_sel"
-                    app:bsb_second_track_size="@dimen/x10"
                     app:bsb_track_size="@dimen/x10"/>
 
 
@@ -147,8 +155,8 @@
                     android:layout_height="@dimen/x50"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/x20"
-                    android:background="@drawable/auto_button_blue_sel"
-                    android:text="开启"
+                    android:background="@drawable/selector_button"
+                    android:text="打开窗帘"
                     android:textSize="@dimen/x25"/>
 
                 <Button
@@ -157,8 +165,8 @@
                     android:layout_height="@dimen/x50"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/x20"
-                    android:background="@drawable/auto_button_blue_sel"
-                    android:text="未连接"
+                    android:background="@drawable/selector_button"
+                    android:text="停止"
                     android:textSize="@dimen/x25"/>
 
                 <Button
@@ -167,8 +175,8 @@
                     android:layout_height="@dimen/x50"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/x20"
-                    android:background="@drawable/auto_button_blue_sel"
-                    android:text="未连接"
+                    android:background="@drawable/selector_button"
+                    android:text="关闭窗帘"
                     android:textSize="@dimen/x25"/>
             </LinearLayout>
 
@@ -192,13 +200,56 @@
 
                 <Button
                     android:id="@+id/light_smartlight"
-                    android:layout_width="@dimen/x200"
-                    android:layout_height="@dimen/x60"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/x50"
                     android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/x60"
-                    android:background="@drawable/auto_button_blue_sel"
-                    android:text="未连接"
-                    android:textSize="@dimen/x25"/>
+                    android:layout_marginTop="@dimen/x20"
+                    android:background="@drawable/selector_button"
+                    android:text="手动"
+                    android:textSize="@dimen/x20"/>
+
+
+                <LinearLayout
+                    android:id="@+id/light_control_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x20">
+
+                    <Button
+                        android:id="@+id/light_oppen"
+                        android:layout_width="@dimen/x130"
+                        android:layout_height="@dimen/x50"
+                        android:layout_gravity="center"
+
+                        android:background="@drawable/selector_button"
+                        android:text="开灯"
+                        android:textSize="@dimen/x20"/>
+
+                    <Button
+                        android:id="@+id/light_close"
+                        android:layout_width="@dimen/x130"
+                        android:layout_height="@dimen/x50"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/x20"
+
+                        android:background="@drawable/selector_button"
+                        android:text="关灯"
+                        android:textSize="@dimen/x20"/>
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/light_setlight"
+                    android:layout_width="@dimen/x160"
+                    android:layout_height="@dimen/x50"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/x20"
+
+                    android:background="@drawable/selector_button"
+                    android:text="设置"
+                    android:textSize="@dimen/x20"/>
             </LinearLayout>
         </LinearLayout>
 

@@ -3,28 +3,29 @@ package com.gtafe.experimental.app;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.gtafe.experimental.bean.DaoMaster;
 import com.gtafe.experimental.bean.DaoSession;
 import com.gtafe.experimental.bean.DataBean;
 import com.gtafe.experimental.server.SocketService;
-import com.videogo.openapi.EZOpenSDK;
+
 
 import java.io.File;
 import java.io.IOException;
 
 import android_serialport_api.SerialPort;
+import android_serialport_api.SerialPortFinder;
 
-import static com.gtafe.experimental.Constant.Constant.ENVIRONMENT_SMARTCURTAIN_ISAUTO;
-import static com.gtafe.experimental.Constant.Constant.EXPERIMENTAL;
-import static com.gtafe.experimental.Constant.Constant.LIGHT_SMARTLIGHT_ISAUTO;
 
 /**
  * Created by ZhouJF on 2017/9/15.
  */
 
 public class ExperimentalApplication extends Application {
+    private static final String TAG = "ExperimentalApplication";
     private static DataBean mDataBean;
     public static Context mContext;
     public static SerialPort mSerialPort;
@@ -34,7 +35,7 @@ public class ExperimentalApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        initHK();
+
         initData();
         startService();
 
@@ -62,29 +63,26 @@ public class ExperimentalApplication extends Application {
         return mDaoSession;
     }
 
-    private void initHK() {
-        EZOpenSDK.showSDKLog(true);
-        EZOpenSDK.enableP2P(true);
-        EZOpenSDK.initLib(this, "57fe9b6b3dca44ff9ab32be33006a868", "");
-    }
 
     private void initData() {
+        int powerLimit = getSharedPreferences("powerlimit", MODE_PRIVATE).getInt("powerlimit", 600);
 
-      /*boolean light_smartlight_isauto = mContext.getSharedPreferences(EXPERIMENTAL, MODE_PRIVATE).getBoolean(LIGHT_SMARTLIGHT_ISAUTO, false);
-        mDataBean.setSmartLightState(light_smartlight_isauto);
-       boolean environment_smartcurtain_isauto = mContext.getSharedPreferences(EXPERIMENTAL, MODE_PRIVATE).getBoolean(ENVIRONMENT_SMARTCURTAIN_ISAUTO, false);
-        mDataBean.setCurtainAuto(environment_smartcurtain_isauto);
+        SharedPreferences sp = getSharedPreferences("smartLightLimit", MODE_PRIVATE);
+        int limith = sp.getInt("limith", 40);
+        int limitl = sp.getInt("limitl", 5);
 
-        mDataBean.setSafe_gas(2);
-        mDataBean.setSafe_infrared(2);
-        mDataBean.setSafe_flame(1);*/
+        DataBean dataBean = getDataBean();
+        dataBean.setPowerLimit(powerLimit);
+        dataBean.setSmartLightH(limith);
+        dataBean.setSmartLightL(limitl);
     }
 
     public static DataBean getDataBean() {
-        if (mDataBean==null){
-            synchronized (ExperimentalApplication.class){
-                if (mDataBean==null) {
+        if (mDataBean == null) {
+            synchronized (ExperimentalApplication.class) {
+                if (mDataBean == null) {
                     mDataBean = new DataBean();
+
                 }
             }
         }
@@ -96,20 +94,12 @@ public class ExperimentalApplication extends Application {
         startService(service);
     }
 
-    public static SerialPort getSerialPort() {
+    public static SerialPort getSerialPort() throws SecurityException, IOException {
 
-        if (mSerialPort == null) {
 
-            try {
-                // mSerialPort = new SerialPort(new File("/dev/ttySAC1"), 115200, 0);
-                mSerialPort = new SerialPort(new File("/dev/ttyS2"), 115200, 0);
+        // mSerialPort = new SerialPort(new File("/dev/ttySAC1"), 115200, 0);
+        return mSerialPort = new SerialPort(new File("/dev/ttyUSB0"), 115200, 0);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return mSerialPort;
+
     }
-
-
 }

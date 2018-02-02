@@ -48,46 +48,51 @@ public class SafeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void init() {
 
-        mSafeSet.setOnClickListener(this);
         refreshView(null);
-        if (mDataBean.isSafeState()) {
-            mSafeSet.setText("已设防");
+        if (!mDataBean.isSafeState()) {
+            mSafeSet.setText("设防");
+            mSafeSet.setTextColor(Color.BLUE);
         } else {
+            mSafeSet.setText("解除");
+            mSafeSet.setTextColor(Color.GREEN);
 
-            mSafeSet.setText("未设防");
         }
-        mDataBean.setSafeState(!mDataBean.isSafeState());
+        mSafeSet.setOnClickListener(this);
+
     }
 
     private void refreshView(byte[] bytes) {
+        Log.e(TAG, "refreshView: voice" + mDataBean.getSafe_voice());
         switch (mDataBean.getSafe_voice()) {
-            case 0xff:
-                mSafeVoiceImg.setVisibility(View.GONE);
+            case -1:
+                Log.e(TAG, "refreshView: voice2" + mDataBean.getSafe_voice());
+                mSafeVoiceImg.setVisibility(View.INVISIBLE);
+                mSafeVoice.setText("正常");
                 break;
-            case 1:
-                mSafeVoiceImg.setVisibility(View.VISIBLE);
-                mSafeVoice.setText("火警");
+            case 0:
+                mSafeVoiceImg.setVisibility(View.INVISIBLE);
+                mSafeVoice.setText("未连接");
                 break;
             case 2:
                 mSafeVoiceImg.setVisibility(View.VISIBLE);
+                mSafeVoice.setText("火焰报警");
+                break;
+            case 30:
+                mSafeVoiceImg.setVisibility(View.VISIBLE);
                 mSafeVoice.setText("有人入侵");
                 break;
-            case 3:
+            case 10:
                 mSafeVoiceImg.setVisibility(View.VISIBLE);
                 mSafeVoice.setText("烟雾报警");
                 break;
-            case 4:
+            case 1:
                 mSafeVoiceImg.setVisibility(View.VISIBLE);
                 mSafeVoice.setText("燃气泄漏");
-                break;
-            case 5:
-                mSafeVoiceImg.setVisibility(View.VISIBLE);
-                mSafeVoice.setText("火警");
                 break;
             case 6:
                 break;
         }
-        mSafeVoiceImg.setVisibility(mDataBean.getSafe_voice() == 0 ? View.GONE : View.VISIBLE);
+
         mEnvironmentTemp.setText("温度：" + mDataBean.getTemperature() + "℃");
         mEnvironmentWet.setText("湿度：" + mDataBean.getHumidity() + " %");
         refreshSafeState(mSafeGas, mDataBean.getSafe_gas());
@@ -103,15 +108,30 @@ public class SafeActivity extends BaseActivity implements View.OnClickListener {
                 tv.setTextColor(Color.BLACK);
                 break;
             case 1:
-                tv.getAnimation().cancel();
-                tv.clearAnimation();
+                // tv.getAnimation().cancel();
+                // tv.clearAnimation();
                 tv.setText("正常");
                 tv.setTextColor(Color.GREEN);
                 break;
             case 2:
                 tv.setText("报警");
-                initAnimation(tv);
+                //  initAnimation(tv);
                 tv.setTextColor(Color.RED);
+                break;
+            case 10:
+                tv.setText("防盗报警");
+                //  initAnimation(tv);
+                tv.setTextColor(Color.RED);
+                break;
+            case 20:
+                tv.setText("有人");
+                //  initAnimation(tv);
+                tv.setTextColor(Color.GREEN);
+                break;
+            case 30:
+                tv.setText("无人");
+                //  initAnimation(tv);
+                tv.setTextColor(Color.GREEN);
                 break;
         }
     }
@@ -129,11 +149,10 @@ public class SafeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
 
         if (mDataBean.isSafeState()) {
-            mSafeSet.setText("已设防");
-
-        } else {
+            mSafeSet.setText("设防");
+            mSafeSet.setTextColor(Color.BLUE);
+            mDataBean.setSafeState(false);
             byte[] sendBytes = new byte[8];
-
             sendBytes[0] = 0x7f;
             sendBytes[1] = (byte) 0xAA;
             sendBytes[2] = 0x20;
@@ -143,10 +162,14 @@ public class SafeActivity extends BaseActivity implements View.OnClickListener {
             sendBytes[6] = 0x0d;
             sendBytes[7] = 0x0a;
             sendDataToService(sendBytes);
-            mSafeSet.setText("未设防");
+        } else {
+
+            mDataBean.setSafeState(true);
+            mSafeSet.setText("解除");
+            mSafeSet.setTextColor(Color.GREEN);
 
         }
-        mDataBean.setSafeState(!mDataBean.isSafeState());
+
     }
 
     @Override
